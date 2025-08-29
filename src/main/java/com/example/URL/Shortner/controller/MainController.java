@@ -15,6 +15,7 @@ public class MainController {
     private ShortnerServices shortenerServices;
 
 
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/generate")
     public ResponseEntity<String> generateURL (@RequestParam String url) throws Exception {
         /*
@@ -28,6 +29,7 @@ public class MainController {
 
     }
 
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/hit/{uuid}")
     public ResponseEntity<Void> hitTheLink(@PathVariable String uuid) throws Exception {
         String originalUrl = shortenerServices.getOriginalUrl(uuid);
