@@ -4,6 +4,8 @@ import com.example.URL.Shortner.entity.UrlShortenerDetails;
 import com.example.URL.Shortner.repository.URLShortenerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -19,6 +21,8 @@ public class ShortnerServices {
     @Value("${url.shortener.base.url}")
     private String baseURL;
 
+    // ✅ Generate Short URL
+    @CachePut(value = "urlCache", key = "#url")
     public String returnURL (String url) throws Exception {
     /*
     * service for generate controller:
@@ -44,6 +48,9 @@ public class ShortnerServices {
         return generatedURL;
     }
 
+
+    // ✅ Fetch Original URL (first checks Redis)
+    @Cacheable(value = "urlCache", key = "#shortUrl")
     public String getOriginalUrl(String shortUrl) throws Exception {
         shortUrl = baseURL + shortUrl;
         UrlShortenerDetails urlShortenerDetails = urlShortenerRepository.findByShortUrl(shortUrl);
