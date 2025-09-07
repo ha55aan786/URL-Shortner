@@ -30,6 +30,7 @@ jobs:
           DB_NAME: ${{ secrets.DB_NAME }}
           DB_USER: ${{ secrets.DB_USER }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          SERVICE_URL: ${{ secrets.SERVICE_URL }}
 
 
       - name: Upload artifact for deployment job
@@ -69,4 +70,6 @@ jobs:
           DB_NAME: ${{ secrets.DB_NAME }}
           DB_USER: ${{ secrets.DB_USER }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          SERVICE_URL: ${{ secrets.SERVICE_URL }}
+
 
