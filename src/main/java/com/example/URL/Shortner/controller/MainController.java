@@ -24,7 +24,7 @@ public class MainController {
     @GetMapping("/generate")
     public ResponseEntity<String> generateURL (@RequestParam String url) throws Exception {
         /*
-        * 1.generateURL
+        *1.generateURL
         get url in param or body
         pass the url to the service class
         */
