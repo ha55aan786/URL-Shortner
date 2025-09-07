@@ -26,6 +26,10 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean install
+        env: # 👈 Inject DB secrets here during build
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -60,4 +64,7 @@ jobs:
           app-name: 'urlshortener'
           slot-name: 'Production'
           package: '*.jar'
-          
+        env: # 👈 Inject DB secrets at deploy stage too
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
