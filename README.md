@@ -20,6 +20,4 @@ It exposes REST APIs to create short URLs and redirect to the original URLs.
 - **Database:**  PostgreSQL 
 - **Maven** for build
 
----
 
-## 📦 Project Structure
