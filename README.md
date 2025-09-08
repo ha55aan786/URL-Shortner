@@ -8,7 +8,7 @@ It exposes REST APIs to create short URLs and redirect to the original URLs.
 ## 🚀 Features
 - Generate short URLs for long URLs
 - Redirect short URL → original URL
-- REST API with JSON responses
+- REST API with String(short url) responses
 - Exception handling with meaningful errors
 - PostgreSQL deployed on Neon cloud servers
 
