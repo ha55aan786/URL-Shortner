@@ -20,7 +20,7 @@ public class MainController {
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
 
-    @CrossOrigin(origins = "http://localhost:5173")
+    @CrossOrigin(origins = "https://vercel.com/hassaans-projects-858ff790/my-app/6FRGatrqF19nyTKdiYPHRwEge61Z")
     @GetMapping("/generate")
     public ResponseEntity<String> generateURL (@RequestParam String url) throws Exception {
         /*
@@ -35,7 +35,7 @@ public class MainController {
 
     }
 
-        @CrossOrigin(origins = "http://localhost:5173")
+        @CrossOrigin(origins = "https://vercel.com/hassaans-projects-858ff790/my-app/6FRGatrqF19nyTKdiYPHRwEge61Z")
         @GetMapping("/hit/{uuid}")
         public ResponseEntity<Void> hitTheLink(@PathVariable String uuid, HttpServletRequest httpServletRequest) throws Exception {
             String originalUrl = shortenerServices.getOriginalUrl(uuid);
